@@ -334,7 +334,7 @@ router.patch(
           : "auto",
       format: req.file.originalname.split(".").pop(),
     });
-
+    const secure_url_file = result.secure_url;
     // Create new user
     const fileId = result.public_id; // Store the file ID in a variable
     const updatedUser = await Engineer.findByIdAndUpdate(
@@ -359,6 +359,7 @@ router.patch(
         data: {
           updatedUser,
           fileId,
+          secure_url_file,
            
         },
       });
